@@ -3,12 +3,25 @@ Library         SeleniumLibrary
 
 *** Variables ***
 ${URL}       https://localhost:4200/search
+${FULL_NAME}    Supachai Uthawisan
+${ADDRESS_1}    991/1 ถนนพระราม 1 แขวงปทุมวัน เขตปทุมวัน
+${PROVINCE}     กรุงเทพมหานคร
+${CITY}         กรุงเทพมหานคร
+${POST_CODE}    10330
 
 *** Keywords ***
 เปิดChromeเข้าwebsite
     Open Browser    ${URL}    Chrome
 ปิด Chrome
     Close Browser
+ซื้อ Scrabble
+    [Arguments]     ${PRODUCT_ID}   ${PRODUCT_NAME}     ${AGE}      ${GENDER}   ${PRICE}    ${PRICE_IN_THAI}    ${QUANTITY}     ${SHIPPING}     ${SHIPPING_FEE}     ${STOCK}
+    ค้นหาและเลือกของ                                  ${PRODUCT_ID}           ${PRODUCT_NAME}     ${AGE}        ${GENDER}
+    เช็ครายละเอียดของสินค้าและเพิ่มเข้า Shopping cart       ${PRODUCT_NAME}     ${PRICE}        ${SHIPPING}     ${QUANTITY}         ${STOCK}
+    เช็คสินค้าใน Shopping cart และทำการ checkout       ${SHIPPING}     ${PRICE_IN_THAI}       ${SHIPPING_FEE}
+    เลือกที่อยู่สำหรับจัดส่งสินค้า                           ${FULL_NAME}         ${ADDRESS_1}       ${PROVINCE}        ${CITY}        ${POST_CODE}
+    เลือกรูปแบบการชำระเงินเป็น Debit                     ${PRODUCT_NAME}      ${PRICE}     ${PRICE_IN_THAI}+${SHIPPING_FEE}
+    แสดงรายละเอียดคำสั่งซื้อทั้งหมด                       ${PRODUCT_NAME}      ${PRICE}        ${SHIPPING}    ${QUANTITY}       ${SHIPPING_FEE}       ${PRICE_IN_THAI}+${SHIPPING_FEE}
 ค้นหาและเลือกของ
     [Arguments]        ${ID}        ${NAME}      ${AGE}       ${GENDER}
     Wait Until Page Contains	    Search Toy	
