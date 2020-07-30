@@ -3,14 +3,9 @@ export class Product {
     public price: number;
     public quantity: number;
     public id: number;
-    public availbility: string;
+    public availability: string;
     public age: string;
     public gender: string;
     public brand: string;
+    public amount: number;
 }
-
-export const exampleProduct: Product[] = [
-    { id: 2, name: '43 Piece dinner Set', gender: 'Female', age: '3_to_5', price: '12.95', availbility: 'InStock', brand: 'CoolKidz' },
-    { id: 16, name: 'Scrabble', gender: 'Neutral', age: 'over8', price: '19.95', availbility: 'InStock', brand: 'GeekToys' },
-    { id: 13, name: 'Settlers of Catan Board Game', gender: 'Neutral', age: 'over8', price: '44.95', availbility: 'InStock', brand: 'GeekToys' }
-]

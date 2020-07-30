@@ -1,1 +1,81 @@
-<p>shopping-cart works!</p>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3> Shopping Cart</h3>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive tableFixHead" style="overflow-y:auto; height: 500px;">
+                <table class="table fixed">
+                    <col width=58.33% />
+                    <col width=13.33% />
+                    <col width=28.33% />
+                    <thead>
+                        <tr>
+                            <th>Items </th>
+                            <th style="text-align: center;">Quanitiy</th>
+                            <th style="text-align: end;">Price (THB)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngIf="productCart.products.length > 0">
+                            <tr *ngFor="let product of productCart.products">
+                                <td>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            {{product.name}} by {{product.brand}}
+                                        </div>
+                                        <div class="col-sm-3">
+                                            {{product.gender}}
+                                        </div>
+                                        <div class="col-sm-6">
+                                            {{product.age}}
+                                        </div>
+                                        <div class="col-sm-12"><a
+                                                [ngStyle]="{'color': product.availability == 'InStock'? 'green':'red'}">{{ product.availability == 'InStock'?'In Stock':'Out of stock' }}</a>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <button class="btn btn-danger"
+                                                (click)="onDelete(product.id)">Delete</button>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td align="center">
+                                    <select id="quanitiy" [(ngModel)]="product.amount" (change)="updatePrice()">
+                                        <ng-container *ngFor="let item of array(product.quantity+1); let i = index;">
+                                            <option value={{i}}>{{i}}</option>
+                                        </ng-container>
+                                    </select>
+                                </td>
+                                <td align="end">{{ product.price * 31 | number:'.2'}}</td>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                </table>
+                <h4 *ngIf="(productCart.products).length == 0" style="text-align: center;">
+                    ไม่พบสินค้า
+                </h4>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-sm-7" id="ship_method">
+                    Shipping Method: EMS
+                </div>
+                <div class="col-sm-5" id="sub_total">
+                    <h4> Subtotal ({{(productCart.products).length}} Items): {{total* 31 | number:'.2'}} THB </h4>
+                </div>
+                <div class="col-sm-7">
+                    Shipping Fee: 30.00 THB
+                </div>
+                <div class="col-sm-5" id="ship_fee">
+                    <h4>Shipping Fee: 30 THB</h4>
+                </div>
+                <div class="col-sm-7"></div>
+                <div class="col-sm-5"><button class="btn btn-primary" style="width: 100%;" (click)="onSubmit()"
+                        id="submit">Process
+                        to
+                        checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
