@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CartItem } from './models/cart-item';
+import { CartItem } from '../models/cart-item';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
@@ -12,12 +12,12 @@ export class ShoppingServiceService {
   constructor() { }
 
   getItems(): Observable<CartItem[]> {
-    return of(this.currentCartItems)
+    return of(this.currentCartItems);
   }
   addItem(product: CartItem) {
     this.currentCartItems.push(product);
   }
   removeItem(id: number) {
-    this.currentCartItems = this.currentCartItems.filter(item => { return item.products.filter(i => i.id != id) });
+    this.currentCartItems = this.currentCartItems.filter(item => { item.products.filter(i => i.id !== id); });
   }
 }
