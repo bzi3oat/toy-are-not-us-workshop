@@ -74,3 +74,5 @@ ${POST_CODE}    10330
     Element Should Contain	        quantity	        ${QUANTITY}
     Element Should Contain	        shipping_fee	    ${SHIPPING_FEE}
     Element Should Contain	        total	            ${TOTAL}
+ปิด Chrome
+    Close Browser
