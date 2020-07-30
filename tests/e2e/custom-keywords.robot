@@ -2,7 +2,7 @@
 Library         SeleniumLibrary
 
 *** Variables ***
-${URL}       https://localhost:8080/search
+${URL}       https://localhost:4200/search
 
 *** Keywords ***
 เปิดChromeเข้าwebsite

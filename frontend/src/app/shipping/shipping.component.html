@@ -1,1 +1,63 @@
-<h1>Shipping Address</h1>
+<div class="m-4 p-4">
+    <h1 class="mb-4">Shipping Address</h1>
+    <form [formGroup]="address" (ngSubmit)="onSubmit()">
+
+        <label class="my-2 d-flex flex-column">
+            Full Name
+            <input type="text" name="full_name" class="form-control d-flex" formControlName="fullName">
+            <div
+                *ngIf="address.controls.fullName.errors && (address.controls.fullName.touched || address.controls.fullName.dirty)">
+                <div class="text-danger" *ngIf="address.controls.fullName.errors">Full name is required</div>
+            </div>
+        </label>
+
+        <label class="my-2 d-flex flex-column">
+            Address 1
+            <input type="text" name="address_1" class="form-control d-flex" formControlName="address1">
+            <div
+                *ngIf="address.controls.address1.errors && (address.controls.address1.touched || address.controls.address1.dirty)">
+                <div class="text-danger" *ngIf="address.controls.address1.errors">Address 1 is required</div>
+            </div>
+        </label>
+
+        <label class="my-2 d-flex flex-column">
+            Address 2
+            <input type="text" name="address_2" class="form-control d-flex" formControlName="address2">
+        </label>
+
+
+        <div class="d-flex flex-row justify-content-between">
+            <label style="width: 25%" class="mr-4">
+                City
+                <input type="text" name="city" class="form-control d-flex" formControlName="city">
+                <div
+                    *ngIf="address.controls.city.errors && (address.controls.city.touched || address.controls.city.dirty)">
+                    <div class="text-danger" *ngIf="address.controls.city.errors">City is required</div>
+                </div>
+            </label>
+
+            <label style="width: 25%" class="mr-4">
+                Province
+                <input type="text" name="province" class="form-control" formControlName="province">
+                <div
+                    *ngIf="address.controls.province.errors && (address.controls.province.touched || address.controls.province.dirty)">
+                    <div class="text-danger" *ngIf="address.controls.province.errors">Province is required</div>
+                </div>
+            </label>
+
+            <label style="width: 25%">
+                Post code
+                <input type="text" name="post_code" class="form-control" formControlName="postcode">
+                <div
+                    *ngIf="address.controls.postcode.errors && (address.controls.postcode.touched || address.controls.postcode.dirty)">
+                    <div class="text-danger" *ngIf="address.controls.postcode.errors">Post code is required</div>
+                </div>
+            </label>
+        </div>
+
+        <div class="d-flex flex-grow-1 justify-content-center mt-4">
+            <button class="btn btn-primary btn-lg">Deliver to this address</button>
+        </div>
+
+    </form>
+</div>
