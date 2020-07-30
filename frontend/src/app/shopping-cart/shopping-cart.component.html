@@ -46,7 +46,7 @@
                                         </ng-container>
                                     </select>
                                 </td>
-                                <td align="end">{{ product.price * 31 | number:'.2'}}</td>
+                                <td align="end">{{ (product.price * 31)*product.amount | number:'.2'}}</td>
                             </tr>
                         </ng-container>
                     </tbody>
