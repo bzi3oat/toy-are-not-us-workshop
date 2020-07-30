@@ -2,13 +2,12 @@
 Library         SeleniumLibrary
 
 *** Variables ***
-${URL}       https://localhost:8080/search
+${URL}       https://localhost:4200/search
 
 *** Keywords ***
 เปิดChromeเข้าwebsite
     Open Browser    ${URL}    Chrome
-ปิด Chrome
-    Close Browser
+    Maximize Browser Window
 ค้นหาและเลือกของ
     [Arguments]        ${ID}        ${NAME}      ${AGE}       ${GENDER}
     Wait Until Page Contains	    Search Toy	
@@ -61,3 +60,5 @@ ${URL}       https://localhost:8080/search
     Element Should Contain	        quantity	        ${QUANTITY}
     Element Should Contain	        shipping_fee	    ${SHIPPING_FEE}
     Element Should Contain	        total	            ${TOTAL}
+ปิด Chrome
+    Close Browser
