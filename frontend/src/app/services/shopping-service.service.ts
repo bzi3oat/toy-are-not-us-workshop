@@ -1,23 +1,25 @@
 import { Injectable } from '@angular/core';
 import { CartItem } from '../models/cart-item';
 import { Observable, of } from 'rxjs';
+import { Product } from '../models/product';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShoppingServiceService {
 
-  currentCartItems: CartItem[] = [];
+  currentCartItems: CartItem = new CartItem();
 
-  constructor() { }
+  constructor() { this.currentCartItems.products = [] }
 
-  getItems(): Observable<CartItem[]> {
-    return of(this.currentCartItems);
+  getItems(): Observable<CartItem> {
+    return of(this.currentCartItems)
   }
-  addItem(product: CartItem) {
-    this.currentCartItems.push(product);
+  addItem(product: Product) {
+    this.currentCartItems.products.push(product);
   }
   removeItem(id: number) {
-    this.currentCartItems = this.currentCartItems.filter(item => { item.products.filter(i => i.id !== id); });
+    this.currentCartItems.products = this.currentCartItems.products.filter(item => {item.id != id});
   }
 }
