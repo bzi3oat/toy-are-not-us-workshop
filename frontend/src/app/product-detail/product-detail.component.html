@@ -1,1 +1,31 @@
-<p>product-detail works!</p>
+
+<div class="card">
+    <div class="card-header">
+      Toy name
+    </div>
+    <br>
+    <div class="card-body">
+      <div class="row">
+          <div class="col-sm-4">
+            <div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Phoenicopterus_ruber_in_S%C3%A3o_Paulo_Zoo.jpg" width="300" height="300">
+            </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+        <div class="col-md-10">Brand : {{ productDetail.brand }} </div>
+        <div class="col-md-10">Gender : {{ productDetail.gender }}</div>
+        <div class="col-md-10">Age : {{ productDetail.age }}</div>
+        <div class="col-md-10">Price : {{ productDetail.price }}</div>
+        <div class="col-md-10">Shipping Method : haha</div>
+        <div class="col-md-10">Stock : {{ productDetail.availbility }}</div>
+        <div class="col-md-10">Quantity : {{ productDetail.quantity }}</div>
+        </div>
+    </div>
+     <br>
+      <button (click)="onAddtoCart()">ADD TO CART</button>
+    </div>
+  </div>
+
+  
