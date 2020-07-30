@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from '../models/product';
+import { ProductServiceService } from '../services/product-service.service';
+import { Route, ActivatedRoute, Router } from '@angular/router';
+import { ShoppingServiceService } from '../services/shopping-service.service';
+
 
 @Component({
   selector: 'app-product-detail',
@@ -7,9 +12,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductDetailComponent implements OnInit {
 
-  constructor() { }
+  productDetail: Product 
+    constructor(public service: ProductServiceService, private router: Router,private route: ActivatedRoute,public shop:ShoppingServiceService){
+
+    }
+
+  onAddtoCart(){
+    this.shop.addItem(this.productDetail) 
+      console.log(this.shop.getItems());
+      this.router.navigateByUrl(`/cart`);
+  }
+    
 
   ngOnInit(): void {
+    const productId: number = parseInt(this.route.snapshot.paramMap.get("id"))
+    this.service.getSpecificProduct(productId).subscribe(p => {
+      this.productDetail = p
+      console.log(this.productDetail)
+    })
+    
   }
+
+
 
 }
