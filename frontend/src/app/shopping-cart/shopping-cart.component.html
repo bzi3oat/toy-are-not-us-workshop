@@ -41,7 +41,7 @@
                                     </div>
                                 </td>
                                 <td align="center">
-                                    <select id="quanitiy" [(ngModel)]="product.amount" (change)="updatePrice()">
+                                    <select id="quantity" [(ngModel)]="product.amount" (change)="updatePrice()">
                                         <ng-container *ngFor="let item of array(product.quantity+1); let i = index;">
                                             <option value={{i}}>{{i}}</option>
                                         </ng-container>
@@ -60,7 +60,7 @@
             <div class="row">
                 <div class="col-sm-7" id="ship_method">
                     Shipping Method:
-                    <select id="quanitiy" [(ngModel)]="selectShipping" (change)="updatePrice()">
+                    <select id="ship_name" [(ngModel)]="selectShipping" (change)="updatePrice()">
                         <ng-container *ngFor="let s of shipping">
                             <option value={{s.cost}}>{{s.name}}</option>
                         </ng-container>

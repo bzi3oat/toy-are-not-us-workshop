@@ -1,67 +1,4 @@
-<<<<<<< HEAD
-<!-- 
-<style>
-table {
-  width:100%;
-}
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-  }
-th, td {
-  padding: 15px;
-  text-align: center;
-}
-#t01 tr:nth-child(even) {
-  background-color: #eee;
-}
-#t01 tr:nth-child(odd) {
- background-color: #fff;
-}
-#t01 th {
-  background-color: black;
-  color: white;
-}
-</style>
 
-<h1>Thank You !!</h1>
-<p>
-    Order number :
-</p>
-<table id = "t01">
-    <tr>
-        <th>Items</th>
-        <th>Quantity</th>
-        <th>Price(THB)</th>
-    </tr>
-    <tr *ngFor="">
-        <td>{{product.name}}</td>
-        <td>{{product.quantity}}</td>
-        <td>{{product.price}}}}</td>
-    </tr>
-</table>
-<h3>Shipping Method : {{cart-item.shipping}}</h3>
-
-<h3>Order Summary</h3>
-
-<p>Items({{count}}):</p>
-
-<p>Shipping Fee: </p>
-
-<h3>Order Total : </h3>
-
-<h3>Address</h3>
-<p>{{address.fullName}}</p>
-<p>{{address.address1}}</p>
-<p>{{address.address2}}</p>
-<p>{{address.city}}</p>
-<p>{{address.province}}</p>
-<<<<<<< HEAD
-<p>{{address.postcode}}</p> -->
-=======
-<p>{{address.postcode}}</p> -->
->>>>>>> origin
-=======
 <div style="width: 100%;">
   <div class="card-header">
     <h3>Thanks you</h3>
@@ -124,7 +61,7 @@ th, td {
             </tfoot>
           </table>
           <div>
-            <h4>Shipping Method: {{productCart.shipping}}</h4>
+            <h4 id="shipping_method">Shipping Method: {{productCart.shipping}}</h4>
           </div>
           <div>
             <h4>Shipping Fee: {{productCart.shippingFee | number: '.2'}}</h4>
@@ -182,4 +119,4 @@ th, td {
     </div>
   </div>
 </div>
->>>>>>> master
+

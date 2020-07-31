@@ -8,7 +8,7 @@
   </div>
   <div class = "col-md-4">
 
-    <p style = "font-size: 20px; margin-top:20px;">Select quantity: </p><select id="quanitiy" [(ngModel)]="productDetail.amount" >
+    <p style = "font-size: 20px; margin-top:20px;">Select quantity: </p><select id="quantity" [(ngModel)]="productDetail.amount" >
       <ng-container *ngFor=" let item of array(productDetail.quantity+1); let i=index;">
         <option value={{i}}>{{i}}</option>
       </ng-container>
