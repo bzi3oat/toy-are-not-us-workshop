@@ -40,7 +40,6 @@ export class ShoppingCartComponent implements OnInit {
       });
     })
     this.total += parseInt(this.selectShipping);
-    console.log('a', this.selectShipping)
   }
   onDelete(id: number): void {
     this.store.removeItem(id)
@@ -48,6 +47,7 @@ export class ShoppingCartComponent implements OnInit {
   }
   onSubmit(): void {
     this.updatePrice()
+    this.store.addShipping('Line man', parseInt(this.selectShipping), this.total)
     this.router.navigateByUrl('/shipping');
   }
 }
