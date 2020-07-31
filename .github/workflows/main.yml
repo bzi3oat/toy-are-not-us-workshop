@@ -17,3 +17,4 @@ jobs:
         env:
           BROWSER: chrome
           ROBOT_TESTS_DIR: ${{ github.workspace }}/tests
+          ROBOT_OPTIONS: -v URL:https://bzi3oat.github.io/toy-are-not-us-workshop/

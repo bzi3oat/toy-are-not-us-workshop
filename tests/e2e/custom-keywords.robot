@@ -2,7 +2,7 @@
 Library         SeleniumLibrary
 
 *** Variables ***
-${URL}          http://localhost:4200/search
+${URL}          http://localhost:4200/
 ${FULL_NAME}    Supachai Uthawisan
 ${ADDRESS_1}    991/1 ถนนพระราม 1 แขวงปทุมวัน เขตปทุมวัน
 ${PROVINCE}     กรุงเทพมหานคร
@@ -22,6 +22,7 @@ ${POST_CODE}    10330
     แสดงรายละเอียดคำสั่งซื้อทั้งหมด                       ${PRODUCT_NAME}      ${PRICE}        ${SHIPPING}    ${QUANTITY}       ${SHIPPING_FEE}       ${PRICE_IN_THAI}+${SHIPPING_FEE}
 ค้นหาและเลือกของ
     [Arguments]                     ${ID}               ${NAME}             ${AGE}              ${GENDER}
+    Click Element                   link_search
     Wait Until Page Contains	    Search Toy	
     Select From List By Value	    age	                ${AGE}
     Select From List By Value	    gender	            ${GENDER}
