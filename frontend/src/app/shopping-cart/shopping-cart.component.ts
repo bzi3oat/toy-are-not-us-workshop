@@ -40,6 +40,7 @@ export class ShoppingCartComponent implements OnInit {
       });
     })
     this.total += parseInt(this.selectShipping);
+    this.store.addTotal(this.total);
   }
   onDelete(id: number): void {
     this.store.removeItem(id)
