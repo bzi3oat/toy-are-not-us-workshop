@@ -20,17 +20,20 @@ export class ShoppingCartComponent implements OnInit {
   selectShipping = '0';
   total: number = 0
   constructor(private api: ProductServiceService, private router: Router, private store: ShoppingServiceService) {
-    store.getItems().subscribe(i => {
-      this.productCart = i
-      i.products.forEach(p => {
-        this.total += (p.price * 31.5) * p.amount
-      });
-    });
+    this.getItem()
   }
   array(n: number): any[] {
     return Array(n);
   }
   ngOnInit(): void {
+  }
+  getItem() {
+    this.store.getItems().subscribe(i => {
+      this.productCart = i
+      i.products.forEach(p => {
+        this.total += (p.price * 31.5) * p.amount
+      });
+    });
   }
   updatePrice(): void {
     this.total = 0
@@ -44,6 +47,7 @@ export class ShoppingCartComponent implements OnInit {
   }
   onDelete(id: number): void {
     this.store.removeItem(id)
+    this.getItem()
     this.updatePrice()
   }
   onSubmit(): void {
