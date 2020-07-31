@@ -28,4 +28,7 @@ export class ShoppingServiceService {
     this.currentCartItems.shippingFee = shippingFee;
     this.currentCartItems.totalPrice = totalPrice
   }
+  addTotal(price: number) {
+    this.currentCartItems.totalPrice = price;
+  }
 }
