@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.8.5 on win32)" generated="20200731 09:53:16.046" rpa="false">
+<suite id="s1" name="Custom" source="C:\toy-are-not-us-workshop\tests\e2e\custom.robot">
+<test id="s1-t1" name="ซื้อ Scrabble">
+<kw name="เปิดChromeเข้าwebsite" library="custom-keywords" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20200731 09:53:16.950" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:4200/search'.</msg>
+<status status="PASS" starttime="20200731 09:53:16.950" endtime="20200731 09:53:22.032"></status>
+</kw>
+<status status="PASS" starttime="20200731 09:53:16.949" endtime="20200731 09:53:22.033"></status>
+</kw>
+<kw name="ค้นหาและเลือกของ" library="custom-keywords">
+<arguments>
+<arg>16</arg>
+<arg>Scrabble</arg>
+<arg>over8</arg>
+<arg>Neutral</arg>
+</arguments>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Search Toy</arg>
+</arguments>
+<status status="PASS" starttime="20200731 09:53:22.034" endtime="20200731 09:53:22.117"></status>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<arguments>
+<arg>age</arg>
+<arg>${AGE}</arg>
+</arguments>
+<msg timestamp="20200731 09:53:22.118" level="INFO">Selecting options from selection list 'age' by value over8.</msg>
+<status status="PASS" starttime="20200731 09:53:22.118" endtime="20200731 09:53:22.305"></status>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<arguments>
+<arg>gender</arg>
+<arg>${GENDER}</arg>
+</arguments>
+<msg timestamp="20200731 09:53:22.305" level="INFO">Selecting options from selection list 'gender' by value Neutral.</msg>
+<status status="PASS" starttime="20200731 09:53:22.305" endtime="20200731 09:53:22.480"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>${NAME}</arg>
+</arguments>
+<status status="PASS" starttime="20200731 09:53:22.480" endtime="20200731 09:53:23.240"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${ID}</arg>
+</arguments>
+<msg timestamp="20200731 09:53:23.241" level="INFO">Clicking element '16'.</msg>
+<status status="PASS" starttime="20200731 09:53:23.240" endtime="20200731 09:53:23.515"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5</arg>
+</arguments>
+<msg timestamp="20200731 09:53:28.517" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20200731 09:53:23.515" endtime="20200731 09:53:28.517"></status>
+</kw>
+<status status="PASS" starttime="20200731 09:53:22.033" endtime="20200731 09:53:28.517"></status>
+</kw>
+<kw name="เช็ครายละเอียดของสินค้าและเพิ่มเข้า Shopping cart" library="custom-keywords">
+<arguments>
+<arg>Scrabble</arg>
+<arg>19.95</arg>
+<arg>Line man</arg>
+<arg>1</arg>
+<arg>In stock</arg>
+</arguments>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Toy name</arg>
+</arguments>
+<status status="PASS" starttime="20200731 09:53:28.519" endtime="20200731 09:53:28.566"></status>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<arguments>
+<arg>Brand</arg>
+<arg>GeekToys</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20200731 09:53:29.176" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200731 09:53:28.609" endtime="20200731 09:53:29.176"></status>
+</kw>
+<msg timestamp="20200731 09:53:29.182" level="FAIL">Element with locator 'Brand' not found.</msg>
+<status status="FAIL" starttime="20200731 09:53:28.566" endtime="20200731 09:53:29.182"></status>
+</kw>
+<status status="FAIL" starttime="20200731 09:53:28.518" endtime="20200731 09:53:29.182"></status>
+</kw>
+<kw name="ปิด Chrome" library="custom-keywords" type="teardown">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200731 09:53:29.184" endtime="20200731 09:53:31.677"></status>
+</kw>
+<status status="PASS" starttime="20200731 09:53:29.183" endtime="20200731 09:53:31.678"></status>
+</kw>
+<status status="FAIL" starttime="20200731 09:53:16.947" endtime="20200731 09:53:31.679" critical="yes">Element with locator 'Brand' not found.</status>
+</test>
+<status status="FAIL" starttime="20200731 09:53:16.049" endtime="20200731 09:53:31.688"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" id="s1" name="Custom">Custom</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

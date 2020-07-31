@@ -11,17 +11,17 @@ ${POST_CODE}    10330
 
 *** Keywords ***
 เปิดChromeเข้าwebsite
-    Open Browser    ${URL}    Chrome
+    Open Browser                                    ${URL}              Chrome
 ซื้อ Scrabble
-    [Arguments]     ${PRODUCT_ID}   ${PRODUCT_NAME}     ${AGE}      ${GENDER}   ${PRICE}    ${PRICE_IN_THAI}    ${QUANTITY}     ${SHIPPING}     ${SHIPPING_FEE}     ${STOCK}
-    ค้นหาและเลือกของ                                  ${PRODUCT_ID}           ${PRODUCT_NAME}     ${AGE}        ${GENDER}
+    [Arguments]                                     ${PRODUCT_ID}       ${PRODUCT_NAME}     ${AGE}      ${GENDER}   ${PRICE}    ${PRICE_IN_THAI}    ${QUANTITY}     ${SHIPPING}     ${SHIPPING_FEE}     ${STOCK}
+    ค้นหาและเลือกของ                                  ${PRODUCT_ID}       ${PRODUCT_NAME}     ${AGE}        ${GENDER}
     เช็ครายละเอียดของสินค้าและเพิ่มเข้า Shopping cart       ${PRODUCT_NAME}     ${PRICE}        ${SHIPPING}     ${QUANTITY}         ${STOCK}
-    เช็คสินค้าใน Shopping cart และทำการ checkout       ${SHIPPING}     ${PRICE_IN_THAI}       ${SHIPPING_FEE}
+    เช็คสินค้าใน Shopping cart และทำการ checkout       ${SHIPPING}          ${PRICE_IN_THAI}       ${SHIPPING_FEE}
     เลือกที่อยู่สำหรับจัดส่งสินค้า                           ${FULL_NAME}         ${ADDRESS_1}       ${PROVINCE}        ${CITY}        ${POST_CODE}
     เลือกรูปแบบการชำระเงินเป็น Debit                     ${PRODUCT_NAME}      ${PRICE}     ${PRICE_IN_THAI}+${SHIPPING_FEE}
     แสดงรายละเอียดคำสั่งซื้อทั้งหมด                       ${PRODUCT_NAME}      ${PRICE}        ${SHIPPING}    ${QUANTITY}       ${SHIPPING_FEE}       ${PRICE_IN_THAI}+${SHIPPING_FEE}
 ค้นหาและเลือกของ
-    [Arguments]        ${ID}        ${NAME}             ${AGE}          ${GENDER}
+    [Arguments]                     ${ID}               ${NAME}             ${AGE}          ${GENDER}
     Wait Until Page Contains	    Search Toy	
     Select From List By Value	    age	                ${AGE}
     Select From List By Value	    gender	            ${GENDER}
@@ -31,14 +31,14 @@ ${POST_CODE}    10330
 เช็ครายละเอียดของสินค้าและเพิ่มเข้า Shopping cart
     [Arguments]                     ${NAME}             ${PRICE}        ${SHIPPING}         ${QUANTITY}         ${STOCK}
     Wait Until Page Contains	    Toy name	
-    Element Should Contain	        product_name	    ${NAME}
-    Element Should Contain	        product_price	    ${PRICE}
-    Element Should Contain	        shipping_method	    ${SHIPPING}
-    Element Should Contain	        quantity	        ${QUANTITY}
-    Element Should Contain	        stock	            ${STOCK}
-    Click Button	                add_to_cart	
+    Element Should Contain	        Brand 	            ${NAME} 
+    Element Should Contain	        Price 	            ${PRICE}
+    Element Should Contain	        Shipping Method	    ${SHIPPING}
+    Element Should Contain	        Quantity 	        ${QUANTITY}
+    Element Should Contain	        Stock 	            ${STOCK}
+    # Click Button	                add_to_cart	
 เช็คสินค้าใน Shopping cart และทำการ checkout
-    [Arguments]        ${SHIPPING}       ${TOTAL}       ${SHIPPING_FEE}
+    [Arguments]                     ${SHIPPING}         ${TOTAL}       ${SHIPPING_FEE}
     Wait Until Page Contains	    Shopping            Cart	
     Select From List By Value	    shipping_method	    ${SHIPPING}
     Element Should Contain	        total	            ${TOTAL}
