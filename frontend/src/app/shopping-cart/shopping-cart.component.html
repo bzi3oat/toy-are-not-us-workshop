@@ -12,7 +12,7 @@
                     <thead>
                         <tr>
                             <th>Items </th>
-                            <th style="text-align: center;">Quanitiy</th>
+                            <th style="text-align: center;">Quantity</th>
                             <th style="text-align: end;">Price (THB)</th>
                         </tr>
                     </thead>
@@ -59,7 +59,14 @@
             <br />
             <div class="row">
                 <div class="col-sm-7" id="ship_method">
-                    Shipping Method: EMS
+                    Shipping Method:
+                    <!-- <select id="quanitiy" [(ngModel)]="product.amount" (change)="updatePrice()">
+
+                        <option value="EMS">EMS</option>
+                        <option value="Line Man">Kerry</option>
+                        <option value="Line man">Line man</option>
+
+                    </select> -->
                 </div>
                 <div class="col-sm-5" id="sub_total">
                     <h4> Subtotal ({{(productCart.products).length}} Items): {{total* 31 | number:'.2'}} THB </h4>
