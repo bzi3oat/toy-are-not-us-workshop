@@ -1,7 +1,7 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
-            <h3> Shopping Cart</h3>
+            <h3>Shopping Cart</h3>
         </div>
         <div class="card-body">
             <div class="table-responsive tableFixHead" style="overflow-y:auto; height: 500px;">
@@ -21,17 +21,18 @@
                             <tr *ngFor="let product of productCart.products">
                                 <td>
                                     <div class="row">
-                                        <div class="col-sm-12">
+                                        <div class="col-sm-12" id="name">
                                             {{product.name}} by {{product.brand}}
                                         </div>
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-3" id="gender">
                                             {{product.gender}}
                                         </div>
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-6" id="age">
                                             {{product.age}}
                                         </div>
                                         <div class="col-sm-12"><a
-                                                [ngStyle]="{'color': product.availability == 'InStock'? 'green':'red'}">{{ product.availability == 'InStock'?'In Stock':'Out of stock' }}</a>
+                                                [ngStyle]="{'color': product.availability == 'InStock'? 'green':'red'}"
+                                                id="availability">{{ product.availability == 'InStock'?'In Stock':'Out of stock' }}</a>
                                         </div>
                                         <div class="col-sm-12">
                                             <button class="btn btn-danger"
@@ -46,7 +47,7 @@
                                         </ng-container>
                                     </select>
                                 </td>
-                                <td align="end">{{ product.price * 31 | number:'.2'}}</td>
+                                <td align="end" id="price">{{ (product.price * 31)*product.amount | number:'.2'}}</td>
                             </tr>
                         </ng-container>
                     </tbody>
