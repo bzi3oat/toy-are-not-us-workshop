@@ -12,8 +12,6 @@ ${POST_CODE}    10330
 *** Keywords ***
 เปิดChromeเข้าwebsite
     Open Browser    ${URL}    Chrome
-ปิด Chrome
-    Close Browser
 ซื้อ Scrabble
     [Arguments]     ${PRODUCT_ID}   ${PRODUCT_NAME}     ${AGE}      ${GENDER}   ${PRICE}    ${PRICE_IN_THAI}    ${QUANTITY}     ${SHIPPING}     ${SHIPPING_FEE}     ${STOCK}
     ค้นหาและเลือกของ                                  ${PRODUCT_ID}           ${PRODUCT_NAME}     ${AGE}        ${GENDER}
@@ -23,16 +21,16 @@ ${POST_CODE}    10330
     เลือกรูปแบบการชำระเงินเป็น Debit                     ${PRODUCT_NAME}      ${PRICE}     ${PRICE_IN_THAI}+${SHIPPING_FEE}
     แสดงรายละเอียดคำสั่งซื้อทั้งหมด                       ${PRODUCT_NAME}      ${PRICE}        ${SHIPPING}    ${QUANTITY}       ${SHIPPING_FEE}       ${PRICE_IN_THAI}+${SHIPPING_FEE}
 ค้นหาและเลือกของ
-    [Arguments]        ${ID}        ${NAME}      ${AGE}       ${GENDER}
+    [Arguments]        ${ID}        ${NAME}             ${AGE}          ${GENDER}
     Wait Until Page Contains	    Search Toy	
     Select From List By Value	    age	                ${AGE}
     Select From List By Value	    gender	            ${GENDER}
-    Click Button                    search
     Wait Until Page Contains	    ${NAME}
     Click Element	                ${ID}
+    Sleep                           5
 เช็ครายละเอียดของสินค้าและเพิ่มเข้า Shopping cart
-    [Arguments]        ${NAME}        ${PRICE}      ${SHIPPING}       ${QUANTITY}       ${STOCK}
-    Wait Until Page Contains	    Quantity	
+    [Arguments]                     ${NAME}             ${PRICE}        ${SHIPPING}         ${QUANTITY}         ${STOCK}
+    Wait Until Page Contains	    Toy name	
     Element Should Contain	        product_name	    ${NAME}
     Element Should Contain	        product_price	    ${PRICE}
     Element Should Contain	        shipping_method	    ${SHIPPING}
