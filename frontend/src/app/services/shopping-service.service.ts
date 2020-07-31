@@ -20,6 +20,12 @@ export class ShoppingServiceService {
     this.currentCartItems.products.push(product);
   }
   removeItem(id: number) {
-    this.currentCartItems.products = this.currentCartItems.products.filter(item => {item.id != id});
+    this.currentCartItems.products = this.currentCartItems.products.filter(item => { item.id != id });
+  }
+
+  addShipping(shipping: string, shippingFee: number, totalPrice: number) {
+    this.currentCartItems.shipping = shipping
+    this.currentCartItems.shippingFee = shippingFee;
+    this.currentCartItems.totalPrice = totalPrice
   }
 }
