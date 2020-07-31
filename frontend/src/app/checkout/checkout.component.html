@@ -32,7 +32,7 @@
                             <td align="center">
                                 <h2>{{product.amount}}</h2>
                             </td>
-                            <td align="end" id="price">{{ (product.price * 31.5)*product.amount | number:'.2'}}</td>
+                            <td align="end" id="price">{{ (product.price * 31.5)*product.amount | number:'1.2-2'}}</td>
                         </tr>
                     </ng-container>
                 </tbody>
@@ -46,14 +46,14 @@
             <h1>Order Summary</h1>
             <div class="col-sm-5" id="sub_total">
                 Item ({{this.cartItem.products.length}}):
-                {{this.cartItem.totalPrice - this.cartItem.shippingFee | number:'.2'}} THB
+                {{this.cartItem.totalPrice - this.cartItem.shippingFee | number:'1.2-2'}} THB
             </div>
             <div class="col-sm-7" id="ship_fee">
-                Shipping Fee: {{this.cartItem.shippingFee | number:'.2'}} THB
+                Shipping Fee: {{this.cartItem.shippingFee | number:'1.2-2'}} THB
             </div>
             <hr />
             <div class="col-sm-5" id="order_total">
-                Order total: {{this.cartItem.totalPrice | number:'.2'}} THB
+                Order total: {{this.cartItem.totalPrice | number:'1.2-2'}} THB
             </div>
         </div>
 

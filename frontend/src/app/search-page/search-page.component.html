@@ -43,7 +43,7 @@
         <tbody *ngIf="products.length > 0">
           <tr *ngFor="let product of products" [id]="product.id" (click)="onClickProduct(product.id)">
             <td>{{ product.name }}</td>
-            <td style="text-align: end;">{{ product.price | number:'.2'  }}</td>
+            <td style="text-align: end;">{{ product.price | number:'1.2-2'  }}</td>
             <td style="text-align: center;"><a
                 [ngStyle]="{'color': product.availability=='InStock'? 'green':'red'}">{{ product.availability=='InStock'?'In Stock':'Out of stock' }}</a>
             </td>

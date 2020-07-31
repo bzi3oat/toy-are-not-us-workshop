@@ -44,7 +44,7 @@
                   <td align="center">
                     {{ product.amount}}
                   </td>
-                  <td align="end" id="price">{{ (product.price * 31.5)*product.amount | number:'.2'}}</td>
+                  <td align="end" id="price">{{ (product.price * 31.5)*product.amount | number:'1.2-2'}}</td>
                 </tr>
               </ng-container>
               <h4 *ngIf="(productCart.products).length == 0" style="text-align: center;">
@@ -55,18 +55,18 @@
               <tr>
                 <th style="text-align: center;">Total</th>
                 <th style="text-align: center;" id="total_amount">{{totalAmount|number}}</th>
-                <th style="text-align: end;" id="total_price">{{totalPrice|number:'.2'}}</th>
+                <th style="text-align: end;" id="total_price">{{totalPrice|number:'1.2-2'}}</th>
               </tr>
             </tfoot>
           </table>
-          <div>
+          <div align="end">
             <h4 id="shipping_method">Shipping Method: {{productCart.shipping}}</h4>
           </div>
-          <div>
-            <h4>Shipping Fee: {{productCart.shippingFee | number: '.2'}}</h4>
+          <div align="end">
+            <h4>Shipping Fee: {{productCart.shippingFee | number: '1.2-2'}} THB</h4>
           </div>
-          <div>
-            <h4>Total price: {{productCart.totalPrice|number:'.2'}}</h4>
+          <div align="end">
+            <h4>Total price: {{productCart.totalPrice|number:'1.2-2'}} THB</h4>
           </div>
         </div>
       </div>

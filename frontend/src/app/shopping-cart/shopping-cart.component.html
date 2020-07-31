@@ -47,7 +47,8 @@
                                         </ng-container>
                                     </select>
                                 </td>
-                                <td align="end" id="price">{{ (product.price * 31.5)*product.amount | number:'.2'}}</td>
+                                <td align="end" id="price">{{((product.price * 31.5)*product.amount )| number:'1.2-2'}}
+                                </td>
                             </tr>
                         </ng-container>
                     </tbody>
@@ -67,13 +68,15 @@
                     </select>
                 </div>
                 <div class="col-sm-5" id="sub_total">
-                    <h4> Subtotal ({{(productCart.products).length}} Items): {{total | number:'.2'}} THB </h4>
+                    <h4 align="end"> Subtotal ({{(productCart.products).length}}
+                        {{(productCart.products).length > 1 ?'Items)':'Item)'}}: {{total | number:'1.2-2'}} THB
+                    </h4>
                 </div>
                 <div class="col-sm-7">
-                    Shipping Fee: {{selectShipping}} THB
+                    Shipping Fee: {{selectShipping| number:'1.2-2'}} THB
                 </div>
                 <div class="col-sm-5" id="ship_fee">
-                    <h4>Shipping Fee: {{selectShipping}} THB</h4>
+                    <h4 align="end">Shipping Fee: {{selectShipping | number:'1.2-2'}} THB</h4>
                 </div>
                 <div class="col-sm-7"></div>
                 <div class="col-sm-5"><button class="btn btn-primary" style="width: 100%;" (click)="onSubmit()"
