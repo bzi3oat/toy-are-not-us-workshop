@@ -1,58 +1,120 @@
-<!-- 
-<style>
-table {
-  width:100%;
-}
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-  }
-th, td {
-  padding: 15px;
-  text-align: center;
-}
-#t01 tr:nth-child(even) {
-  background-color: #eee;
-}
-#t01 tr:nth-child(odd) {
- background-color: #fff;
-}
-#t01 th {
-  background-color: black;
-  color: white;
-}
-</style>
-
-<h1>Thank You !!</h1>
-<p>
-    Order number :
-</p>
-<table id = "t01">
-    <tr>
-        <th>Items</th>
-        <th>Quantity</th>
-        <th>Price(THB)</th>
-    </tr>
-    <tr *ngFor="">
-        <td>{{product.name}}</td>
-        <td>{{product.quantity}}</td>
-        <td>{{product.price}}}}</td>
-    </tr>
-</table>
-<h3>Shipping Method : {{cart-item.shipping}}</h3>
-
-<h3>Order Summary</h3>
-
-<p>Items({{count}}):</p>
-
-<p>Shipping Fee: </p>
-
-<h3>Order Total : </h3>
-
-<h3>Address</h3>
-<p>{{address.fullName}}</p>
-<p>{{address.address1}}</p>
-<p>{{address.address2}}</p>
-<p>{{address.city}}</p>
-<p>{{address.province}}</p>
-<p>{{address.postcode}}</p> -->
+<div style="width: 100%;">
+  <div class="card-header">
+    <h3>Thanks you</h3>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-sm-10">
+        <h4> Details </h4>
+      </div>
+      <div class="col-sm-2">
+        <h4 id="order_id">Order ID: {{orderId}}</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="table-responsive tableFixHead" style="overflow-y:auto; height: 500px;">
+          <table class="table fixed">
+            <col width=58.33% />
+            <col width=13.33% />
+            <col width=28.33% />
+            <thead>
+              <tr>
+                <th>Items </th>
+                <th style="text-align: center;">Quantity</th>
+                <th style="text-align: end;">Price (THB)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngIf="productCart.products.length > 0">
+                <tr *ngFor="let product of productCart.products">
+                  <td>
+                    <div class="row">
+                      <div class="col-sm-12" id="name">
+                        {{product.name}} by {{product.brand}}
+                      </div>
+                      <div class="col-sm-3" id="gender">
+                        {{product.gender}}
+                      </div>
+                      <div class="col-sm-6" id="age">
+                        {{product.age}}
+                      </div>
+                    </div>
+                  </td>
+                  <td align="center">
+                    {{ product.amount}}
+                  </td>
+                  <td align="end" id="price">{{ (product.price * 31.5)*product.amount | number:'.2'}}</td>
+                </tr>
+              </ng-container>
+              <h4 *ngIf="(productCart.products).length == 0" style="text-align: center;">
+                ไม่พบสินค้า
+              </h4>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th style="text-align: center;">Total</th>
+                <th style="text-align: center;" id="total_amount">{{totalAmount|number}}</th>
+                <th style="text-align: end;" id="total_price">{{totalPrice|number:'.2'}}</th>
+              </tr>
+            </tfoot>
+          </table>
+          <div>
+            <h4>Shipping Method: {{productCart.shipping}}</h4>
+          </div>
+          <div>
+            <h4>Shipping Fee: {{productCart.shippingFee | number: '.2'}}</h4>
+          </div>
+          <div>
+            <h4>Total price: {{productCart.totalPrice|number:'.2'}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h4>Address</h4>
+            <div class="row">
+              <div class="input-group mb-3 col-sm-12">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Full name: </span>
+                </div>
+                <input type="text" class="form-control" [value]="address.fullName" disabled id="full_name">
+              </div>
+              <div class="input-group mb-3 col-sm-12">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Address 1: </span>
+                </div>
+                <input type="text" class="form-control" [value]="address.address1" disabled id="address_1">
+              </div>
+              <div class="input-group mb-3 col-sm-12">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Address 2: </span>
+                </div>
+                <input type="text" class="form-control" [value]="address.address2" disabled id="address_2">
+              </div>
+              <div class="input-group mb-3 col-sm-12">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">City: </span>
+                </div>
+                <input type="text" class="form-control" [value]="address.fullName" disabled id="city">
+              </div>
+              <div class="input-group mb-3 col-sm-12">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Province: </span>
+                </div>
+                <input type="text" class="form-control" [value]="address.province" disabled id="province">
+              </div>
+              <div class="input-group mb-3 col-sm-12">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Post code: </span>
+                </div>
+                <input type="text" class="form-control" [value]="address.postcode" disabled id="post_code">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
