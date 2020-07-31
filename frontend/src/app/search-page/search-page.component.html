@@ -3,18 +3,18 @@
 <div class ="card-header"><h1>Search Toy</h1></div>
 <div class = "card-body">
 <p>Select Age: </p>
-<select name="age" [(ngModel)]="ageOption">
+<select name="age" [(ngModel)]="ageOption" class="form-control inputstl" style = "width:200px;">
   <option value="3-5">3-5</option>
   <option value="over8">Over 8</option>
   <option value="any">Any</option>
 </select>
 <p>Select Gender: </p>
-<select name="gender" [(ngModel)]="genderOption">
+<select name="gender" [(ngModel)]="genderOption" class="form-control inputstl" style = "width:200px;">
   <option value="Neutral">Neutral</option>
   <option value="Female">Female</option>
   <option value="any">Any</option>
 </select>
-<button name="search" (click)="searchProduct(ageOption, genderOption)">Search</button>
+<button style = "margin-top:20px;"class = "btn btn-primary" name="search" (click)="searchProduct(ageOption, genderOption)">Search</button>
 
 
 <h2>{{ products.length }} toys found.</h2>

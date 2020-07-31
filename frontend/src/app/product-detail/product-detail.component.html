@@ -1,34 +1,33 @@
-<div class="card">
-  <div class="card-header">
-    {{productDetail.name}}
+<div class="card-header lead" style = "font-size: 30px;"><em><strong> 
+  {{productDetail.name}}
+</strong></em> <div class="col-md-4 lead" id="stock"><strong>Stock : </strong>{{ productDetail.availability }}</div></div>
+<div class = "row">
+  <div class = "col-md-4">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Phoenicopterus_ruber_in_S%C3%A3o_Paulo_Zoo.jpg"
+    width="250" height="250" style= "margin-left: 100px; margin-top:20px; margin-bottom: 20px;">
   </div>
-  <br>
-  <div class="card-body">
-    <div class="row">
-      <div class="col-sm-4">
-        <div>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Phoenicopterus_ruber_in_S%C3%A3o_Paulo_Zoo.jpg"
-            width="300" height="300">
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-4">
-        <div class="col-md-10">Brand : {{ productDetail.brand }} </div>
-        <div class="col-md-10">Gender : {{ productDetail.gender }}</div>
-        <div class="col-md-10">Age : {{ productDetail.age }}</div>
-        <div class="col-md-10">Price : {{ productDetail.price }}</div>
-        <div class="col-md-10">Shipping Method : haha</div>
-        <div class="col-md-10">Stock : {{ productDetail.availability }}</div>
+  <div class = "col-md-4">
 
-        <select id="quanitiy" [(ngModel)]="productDetail.amount">
-          <ng-container *ngFor=" let item of array(productDetail.quantity+1); let i=index;">
-            <option value={{i}}>{{i}}</option>
-          </ng-container>
-        </select>
-      </div>
-    </div>
-    <br>
-    <button (click)="onAddtoCart()">ADD TO CART</button>
+    <p style = "font-size: 20px; margin-top:20px;">Select quantity: </p><select id="quanitiy" [(ngModel)]="productDetail.amount" >
+      <ng-container *ngFor=" let item of array(productDetail.quantity+1); let i=index;">
+        <option value={{i}}>{{i}}</option>
+      </ng-container>
+    </select>
+    <button id = "add_button"[disabled]="productDetail.availability !=='InStock'" (click)="onAddtoCart()" class = "btn btn-primary" style ="size: 20px; margin-left: 20px;">ADD TO CART</button>
+
   </div>
+
+
 </div>
+<div class= "row">
+        <div class="col-md-4 card-header lead" id="product_name"><strong>Brand : </strong>{{ productDetail.brand }} </div>
+        <div class="col-md-4 card-header lead" id="gender"><strong>Gender : </strong>{{ productDetail.gender }}</div>
+        <div class="col-md-4 card-header lead" id="age"><strong>Age : </strong>{{ productDetail.age }}</div>
+        <div class="col-md-4 card-header lead" id="product_price"><strong>Price : </strong>{{ productDetail.price }}</div>
+        <div class="col-md-4 card-header lead" id="shipping_method"><strong>Shipping Method : </strong>haha</div>
+  
+</div>
+    <br>
+
+
+
