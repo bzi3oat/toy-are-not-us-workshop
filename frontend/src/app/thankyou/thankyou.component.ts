@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { AddressServiceService } from '../services/address-service.service';
+import { Address } from '../models/address';
+import { Product } from '../models/product';
+import { CartItem } from '../models/cart-item';
+
+
 
 @Component({
   selector: 'app-thankyou',
@@ -7,7 +14,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ThankyouComponent implements OnInit {
 
-  constructor() { }
+  address: Address;
+  product: Product;
+  cartItem: CartItem;
+
+  constructor(public service: AddressServiceService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
