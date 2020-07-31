@@ -17,7 +17,6 @@ export class ShoppingCartComponent implements OnInit {
     store.getItems().subscribe(i => {
       this.productCart = i
       i.products.forEach(p => {
-        p.amount = p.quantity
         this.total += p.price * p.amount
       });
     });

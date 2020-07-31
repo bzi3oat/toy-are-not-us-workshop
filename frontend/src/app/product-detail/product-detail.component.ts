@@ -12,25 +12,30 @@ import { ShoppingServiceService } from '../services/shopping-service.service';
 })
 export class ProductDetailComponent implements OnInit {
 
-  productDetail: Product 
-    constructor(public service: ProductServiceService, private router: Router,private route: ActivatedRoute,public shop:ShoppingServiceService){
+  productDetail: Product = new Product
+  constructor(public service: ProductServiceService, private router: Router, private route: ActivatedRoute, public shop: ShoppingServiceService) {
 
-    }
-
-  onAddtoCart(){
-    this.shop.addItem(this.productDetail) 
-      console.log(this.shop.getItems());
-      this.router.navigateByUrl(`/cart`);
   }
-    
+
+  onAddtoCart() {
+    this.shop.addItem(this.productDetail)
+    console.log(this.shop.getItems());
+    this.router.navigateByUrl(`/cart`);
+  }
+
+  array(n: number): any[] {
+    return Array(n);
+  }
+
 
   ngOnInit(): void {
     const productId: number = parseInt(this.route.snapshot.paramMap.get("id"))
     this.service.getSpecificProduct(productId).subscribe(p => {
       this.productDetail = p
+      this.productDetail.amount = 1
       console.log(this.productDetail)
     })
-    
+
   }
 
 
