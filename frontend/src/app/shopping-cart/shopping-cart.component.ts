@@ -12,12 +12,18 @@ import { ShoppingServiceService } from '../services/shopping-service.service'
 export class ShoppingCartComponent implements OnInit {
 
   productCart = new CartItem
+  shipping = [
+    { name: 'Line man', cost: 20 },
+    { name: 'Kerry', cost: 30 },
+    { name: 'EMS', cost: 40 }
+  ]
+  selectShipping = '0';
   total: number = 0
   constructor(private api: ProductServiceService, private router: Router, private store: ShoppingServiceService) {
     store.getItems().subscribe(i => {
       this.productCart = i
       i.products.forEach(p => {
-        this.total += p.price * p.amount
+        this.total += (p.price * 31.5) * p.amount
       });
     });
   }
@@ -30,9 +36,11 @@ export class ShoppingCartComponent implements OnInit {
     this.total = 0
     this.store.getItems().subscribe(i => {
       i.products.forEach(p => {
-        this.total += p.price * p.amount
+        this.total += (p.price * 31.5) * p.amount
       });
     })
+    this.total += parseInt(this.selectShipping);
+    console.log('a', this.selectShipping)
   }
   onDelete(id: number): void {
     this.store.removeItem(id)
