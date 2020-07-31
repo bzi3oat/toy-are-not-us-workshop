@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.1 (Python 3.8.3 on win32)" generated="20200731 14:14:31.424" rpa="false">
+<robot generator="Robot 3.2.1 (Python 3.8.3 on win32)" generated="20200731 14:48:27.113" rpa="false">
 <suite id="s1" name="Custom" source="C:\Users\phongpaktao\Documents\toy-are-not-us-workshop\tests\e2e\custom.robot">
 <test id="s1-t1" name="ซื้อ Scrabble">
 <kw name="เปิดChromeเข้าwebsite" library="custom-keywords" type="setup">
@@ -9,10 +9,21 @@
 <arg>${URL}</arg>
 <arg>Chrome</arg>
 </arguments>
-<msg timestamp="20200731 14:14:31.698" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:4200/search'.</msg>
-<status status="PASS" starttime="20200731 14:14:31.698" endtime="20200731 14:14:36.902"></status>
+<msg timestamp="20200731 14:48:27.535" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:4200/search'.</msg>
+<status status="PASS" starttime="20200731 14:48:27.535" endtime="20200731 14:48:34.311"></status>
 </kw>
-<status status="PASS" starttime="20200731 14:14:31.697" endtime="20200731 14:14:36.902"></status>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20200731 14:48:34.311" endtime="20200731 14:48:36.448"></status>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>0.2 second</arg>
+</arguments>
+<status status="PASS" starttime="20200731 14:48:36.448" endtime="20200731 14:48:36.448"></status>
+</kw>
+<status status="PASS" starttime="20200731 14:48:27.534" endtime="20200731 14:48:36.449"></status>
 </kw>
 <kw name="ค้นหาและเลือกของ" library="custom-keywords">
 <arguments>
@@ -21,12 +32,20 @@
 <arg>over8</arg>
 <arg>Neutral</arg>
 </arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>link_search</arg>
+</arguments>
+<msg timestamp="20200731 14:48:36.450" level="INFO">Clicking element 'link_search'.</msg>
+<status status="PASS" starttime="20200731 14:48:36.450" endtime="20200731 14:48:37.041"></status>
+</kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>Search Toy</arg>
 </arguments>
-<status status="PASS" starttime="20200731 14:14:36.905" endtime="20200731 14:14:36.965"></status>
+<status status="PASS" starttime="20200731 14:48:37.042" endtime="20200731 14:48:37.283"></status>
 </kw>
 <kw name="Select From List By Value" library="SeleniumLibrary">
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
@@ -34,8 +53,8 @@
 <arg>age</arg>
 <arg>${AGE}</arg>
 </arguments>
-<msg timestamp="20200731 14:14:36.966" level="INFO">Selecting options from selection list 'age' by value over8.</msg>
-<status status="PASS" starttime="20200731 14:14:36.965" endtime="20200731 14:14:37.207"></status>
+<msg timestamp="20200731 14:48:37.283" level="INFO">Selecting options from selection list 'age' by value over8.</msg>
+<status status="PASS" starttime="20200731 14:48:37.283" endtime="20200731 14:48:38.733"></status>
 </kw>
 <kw name="Select From List By Value" library="SeleniumLibrary">
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
@@ -43,33 +62,25 @@
 <arg>gender</arg>
 <arg>${GENDER}</arg>
 </arguments>
-<msg timestamp="20200731 14:14:37.208" level="INFO">Selecting options from selection list 'gender' by value Neutral.</msg>
-<status status="PASS" starttime="20200731 14:14:37.207" endtime="20200731 14:14:37.445"></status>
+<msg timestamp="20200731 14:48:38.733" level="INFO">Selecting options from selection list 'gender' by value Neutral.</msg>
+<status status="PASS" starttime="20200731 14:48:38.733" endtime="20200731 14:48:40.191"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>${NAME}</arg>
 </arguments>
-<status status="PASS" starttime="20200731 14:14:37.445" endtime="20200731 14:14:37.748"></status>
+<status status="PASS" starttime="20200731 14:48:40.191" endtime="20200731 14:48:40.445"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>${ID}</arg>
 </arguments>
-<msg timestamp="20200731 14:14:37.748" level="INFO">Clicking element '16'.</msg>
-<status status="PASS" starttime="20200731 14:14:37.748" endtime="20200731 14:14:37.938"></status>
+<msg timestamp="20200731 14:48:40.446" level="INFO">Clicking element '16'.</msg>
+<status status="PASS" starttime="20200731 14:48:40.445" endtime="20200731 14:48:41.193"></status>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>3</arg>
-</arguments>
-<msg timestamp="20200731 14:14:40.939" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20200731 14:14:37.939" endtime="20200731 14:14:40.939"></status>
-</kw>
-<status status="PASS" starttime="20200731 14:14:36.904" endtime="20200731 14:14:40.940"></status>
+<status status="PASS" starttime="20200731 14:48:36.450" endtime="20200731 14:48:41.194"></status>
 </kw>
 <kw name="เช็ครายละเอียดของสินค้าและเพิ่มเข้า Shopping cart" library="custom-keywords">
 <arguments>
@@ -80,14 +91,21 @@
 <arg>Available</arg>
 <arg>1</arg>
 </arguments>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Name</arg>
+</arguments>
+<status status="PASS" starttime="20200731 14:48:41.198" endtime="20200731 14:48:41.568"></status>
+</kw>
 <kw name="Element Should Contain" library="SeleniumLibrary">
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
 <arguments>
 <arg>product_brand</arg>
 <arg>${NAME}</arg>
 </arguments>
-<msg timestamp="20200731 14:14:41.021" level="INFO">Element 'product_brand' contains text 'GeekToys'.</msg>
-<status status="PASS" starttime="20200731 14:14:40.942" endtime="20200731 14:14:41.021"></status>
+<msg timestamp="20200731 14:48:42.075" level="INFO">Element 'product_brand' contains text 'GeekToys'.</msg>
+<status status="PASS" starttime="20200731 14:48:41.568" endtime="20200731 14:48:42.075"></status>
 </kw>
 <kw name="Element Should Contain" library="SeleniumLibrary">
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
@@ -95,8 +113,8 @@
 <arg>gender</arg>
 <arg>${GENDER}</arg>
 </arguments>
-<msg timestamp="20200731 14:14:41.082" level="INFO">Element 'gender' contains text 'Neutral'.</msg>
-<status status="PASS" starttime="20200731 14:14:41.021" endtime="20200731 14:14:41.082"></status>
+<msg timestamp="20200731 14:48:42.564" level="INFO">Element 'gender' contains text 'Neutral'.</msg>
+<status status="PASS" starttime="20200731 14:48:42.075" endtime="20200731 14:48:42.564"></status>
 </kw>
 <kw name="Element Should Contain" library="SeleniumLibrary">
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
@@ -104,8 +122,8 @@
 <arg>age</arg>
 <arg>${AGE}</arg>
 </arguments>
-<msg timestamp="20200731 14:14:41.142" level="INFO">Element 'age' contains text 'over8'.</msg>
-<status status="PASS" starttime="20200731 14:14:41.082" endtime="20200731 14:14:41.142"></status>
+<msg timestamp="20200731 14:48:43.087" level="INFO">Element 'age' contains text 'over8'.</msg>
+<status status="PASS" starttime="20200731 14:48:42.564" endtime="20200731 14:48:43.087"></status>
 </kw>
 <kw name="Element Should Contain" library="SeleniumLibrary">
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
@@ -113,8 +131,8 @@
 <arg>product_price</arg>
 <arg>${PRICE}</arg>
 </arguments>
-<msg timestamp="20200731 14:14:41.201" level="INFO">Element 'product_price' contains text '19.95'.</msg>
-<status status="PASS" starttime="20200731 14:14:41.142" endtime="20200731 14:14:41.201"></status>
+<msg timestamp="20200731 14:48:43.593" level="INFO">Element 'product_price' contains text '19.95'.</msg>
+<status status="PASS" starttime="20200731 14:48:43.087" endtime="20200731 14:48:43.593"></status>
 </kw>
 <kw name="Element Should Contain" library="SeleniumLibrary">
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
@@ -122,8 +140,8 @@
 <arg>stock</arg>
 <arg>${STOCK}</arg>
 </arguments>
-<msg timestamp="20200731 14:14:41.258" level="INFO">Element 'stock' contains text 'Available'.</msg>
-<status status="PASS" starttime="20200731 14:14:41.202" endtime="20200731 14:14:41.258"></status>
+<msg timestamp="20200731 14:48:44.081" level="INFO">Element 'stock' contains text 'Available'.</msg>
+<status status="PASS" starttime="20200731 14:48:43.593" endtime="20200731 14:48:44.081"></status>
 </kw>
 <kw name="Select From List By Value" library="SeleniumLibrary">
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
@@ -131,26 +149,18 @@
 <arg>quantity</arg>
 <arg>${QUANTITY}</arg>
 </arguments>
-<msg timestamp="20200731 14:14:41.258" level="INFO">Selecting options from selection list 'quantity' by value 1.</msg>
-<status status="PASS" starttime="20200731 14:14:41.258" endtime="20200731 14:14:41.352"></status>
+<msg timestamp="20200731 14:48:44.082" level="INFO">Selecting options from selection list 'quantity' by value 1.</msg>
+<status status="PASS" starttime="20200731 14:48:44.081" endtime="20200731 14:48:45.235"></status>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <doc>Clicks the button identified by ``locator``.</doc>
 <arguments>
 <arg>id:add_button</arg>
 </arguments>
-<msg timestamp="20200731 14:14:41.353" level="INFO">Clicking button 'id:add_button'.</msg>
-<status status="PASS" starttime="20200731 14:14:41.353" endtime="20200731 14:14:41.533"></status>
+<msg timestamp="20200731 14:48:45.235" level="INFO">Clicking button 'id:add_button'.</msg>
+<status status="PASS" starttime="20200731 14:48:45.235" endtime="20200731 14:48:46.483"></status>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>3</arg>
-</arguments>
-<msg timestamp="20200731 14:14:44.534" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20200731 14:14:41.533" endtime="20200731 14:14:44.534"></status>
-</kw>
-<status status="PASS" starttime="20200731 14:14:40.941" endtime="20200731 14:14:44.534"></status>
+<status status="PASS" starttime="20200731 14:48:41.195" endtime="20200731 14:48:46.483"></status>
 </kw>
 <kw name="เช็คสินค้าใน Shopping cart และทำการ checkout" library="custom-keywords">
 <arguments>
@@ -163,7 +173,7 @@
 <arguments>
 <arg>Shopping Cart</arg>
 </arguments>
-<status status="PASS" starttime="20200731 14:14:44.536" endtime="20200731 14:14:44.577"></status>
+<status status="PASS" starttime="20200731 14:48:46.484" endtime="20200731 14:48:46.736"></status>
 </kw>
 <kw name="Select From List By Label" library="SeleniumLibrary">
 <doc>Selects options from selection list ``locator`` by ``labels``.</doc>
@@ -171,8 +181,8 @@
 <arg>ship_name</arg>
 <arg>${SHIPPING}</arg>
 </arguments>
-<msg timestamp="20200731 14:14:44.578" level="INFO">Selecting options from selection list 'ship_name' by label Line man.</msg>
-<status status="PASS" starttime="20200731 14:14:44.577" endtime="20200731 14:14:44.761"></status>
+<msg timestamp="20200731 14:48:46.736" level="INFO">Selecting options from selection list 'ship_name' by label Line man.</msg>
+<status status="PASS" starttime="20200731 14:48:46.736" endtime="20200731 14:48:48.139"></status>
 </kw>
 <kw name="Element Should Contain" library="SeleniumLibrary">
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
@@ -180,8 +190,8 @@
 <arg>sub_total</arg>
 <arg>${TOTAL}</arg>
 </arguments>
-<msg timestamp="20200731 14:14:44.839" level="INFO">Element 'sub_total' contains text 'Subtotal (1 Items): 648.425 THB'.</msg>
-<status status="PASS" starttime="20200731 14:14:44.761" endtime="20200731 14:14:44.839"></status>
+<msg timestamp="20200731 14:48:48.603" level="INFO">Element 'sub_total' contains text 'Subtotal (1 Items): 648.425 THB'.</msg>
+<status status="PASS" starttime="20200731 14:48:48.139" endtime="20200731 14:48:48.603"></status>
 </kw>
 <kw name="Element Should Contain" library="SeleniumLibrary">
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
@@ -189,26 +199,18 @@
 <arg>ship_fee</arg>
 <arg>${SHIPPING_FEE}</arg>
 </arguments>
-<msg timestamp="20200731 14:14:44.910" level="INFO">Element 'ship_fee' contains text 'Shipping Fee: 20 THB'.</msg>
-<status status="PASS" starttime="20200731 14:14:44.840" endtime="20200731 14:14:44.910"></status>
+<msg timestamp="20200731 14:48:49.084" level="INFO">Element 'ship_fee' contains text 'Shipping Fee: 20 THB'.</msg>
+<status status="PASS" starttime="20200731 14:48:48.603" endtime="20200731 14:48:49.084"></status>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <doc>Clicks the button identified by ``locator``.</doc>
 <arguments>
 <arg>id:submit</arg>
 </arguments>
-<msg timestamp="20200731 14:14:44.911" level="INFO">Clicking button 'id:submit'.</msg>
-<status status="PASS" starttime="20200731 14:14:44.911" endtime="20200731 14:14:45.179"></status>
+<msg timestamp="20200731 14:48:49.084" level="INFO">Clicking button 'id:submit'.</msg>
+<status status="PASS" starttime="20200731 14:48:49.084" endtime="20200731 14:48:50.315"></status>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>3</arg>
-</arguments>
-<msg timestamp="20200731 14:14:48.180" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20200731 14:14:45.179" endtime="20200731 14:14:48.180"></status>
-</kw>
-<status status="PASS" starttime="20200731 14:14:44.535" endtime="20200731 14:14:48.180"></status>
+<status status="PASS" starttime="20200731 14:48:46.484" endtime="20200731 14:48:50.315"></status>
 </kw>
 <kw name="เลือกที่อยู่สำหรับจัดส่งสินค้า" library="custom-keywords">
 <arguments>
@@ -223,7 +225,7 @@
 <arguments>
 <arg>Shipping Address</arg>
 </arguments>
-<status status="PASS" starttime="20200731 14:14:48.182" endtime="20200731 14:14:48.212"></status>
+<status status="PASS" starttime="20200731 14:48:50.317" endtime="20200731 14:48:50.556"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -231,8 +233,8 @@
 <arg>full_name</arg>
 <arg>${FULL_NAME}</arg>
 </arguments>
-<msg timestamp="20200731 14:14:48.213" level="INFO">Typing text 'Supachai Uthawisan' into text field 'full_name'.</msg>
-<status status="PASS" starttime="20200731 14:14:48.213" endtime="20200731 14:14:48.480"></status>
+<msg timestamp="20200731 14:48:50.556" level="INFO">Typing text 'Supachai Uthawisan' into text field 'full_name'.</msg>
+<status status="PASS" starttime="20200731 14:48:50.556" endtime="20200731 14:48:51.503"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -240,8 +242,8 @@
 <arg>address_1</arg>
 <arg>${ADDRESS_1}</arg>
 </arguments>
-<msg timestamp="20200731 14:14:48.481" level="INFO">Typing text '991/1 ถนนพระราม 1 แขวงปทุมวัน เขตปทุมวัน' into text field 'address_1'.</msg>
-<status status="PASS" starttime="20200731 14:14:48.480" endtime="20200731 14:14:48.830"></status>
+<msg timestamp="20200731 14:48:51.504" level="INFO">Typing text '991/1 ถนนพระราม 1 แขวงปทุมวัน เขตปทุมวัน' into text field 'address_1'.</msg>
+<status status="PASS" starttime="20200731 14:48:51.503" endtime="20200731 14:48:52.566"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -249,8 +251,8 @@
 <arg>city</arg>
 <arg>${CITY}</arg>
 </arguments>
-<msg timestamp="20200731 14:14:48.830" level="INFO">Typing text 'กรุงเทพมหานคร' into text field 'city'.</msg>
-<status status="PASS" starttime="20200731 14:14:48.830" endtime="20200731 14:14:49.080"></status>
+<msg timestamp="20200731 14:48:52.566" level="INFO">Typing text 'กรุงเทพมหานคร' into text field 'city'.</msg>
+<status status="PASS" starttime="20200731 14:48:52.566" endtime="20200731 14:48:53.453"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -258,8 +260,8 @@
 <arg>province</arg>
 <arg>${PROVINCE}</arg>
 </arguments>
-<msg timestamp="20200731 14:14:49.080" level="INFO">Typing text 'กรุงเทพมหานคร' into text field 'province'.</msg>
-<status status="PASS" starttime="20200731 14:14:49.080" endtime="20200731 14:14:49.336"></status>
+<msg timestamp="20200731 14:48:53.453" level="INFO">Typing text 'กรุงเทพมหานคร' into text field 'province'.</msg>
+<status status="PASS" starttime="20200731 14:48:53.453" endtime="20200731 14:48:54.304"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -267,26 +269,18 @@
 <arg>post_code</arg>
 <arg>${POST_CODE}</arg>
 </arguments>
-<msg timestamp="20200731 14:14:49.336" level="INFO">Typing text '10330' into text field 'post_code'.</msg>
-<status status="PASS" starttime="20200731 14:14:49.336" endtime="20200731 14:14:49.580"></status>
+<msg timestamp="20200731 14:48:54.305" level="INFO">Typing text '10330' into text field 'post_code'.</msg>
+<status status="PASS" starttime="20200731 14:48:54.304" endtime="20200731 14:48:55.155"></status>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <doc>Clicks the button identified by ``locator``.</doc>
 <arguments>
 <arg>id:deliver_address</arg>
 </arguments>
-<msg timestamp="20200731 14:14:49.581" level="INFO">Clicking button 'id:deliver_address'.</msg>
-<status status="PASS" starttime="20200731 14:14:49.580" endtime="20200731 14:14:49.789"></status>
+<msg timestamp="20200731 14:48:55.155" level="INFO">Clicking button 'id:deliver_address'.</msg>
+<status status="PASS" starttime="20200731 14:48:55.155" endtime="20200731 14:48:56.365"></status>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>3</arg>
-</arguments>
-<msg timestamp="20200731 14:14:52.789" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20200731 14:14:49.789" endtime="20200731 14:14:52.789"></status>
-</kw>
-<status status="PASS" starttime="20200731 14:14:48.181" endtime="20200731 14:14:52.789"></status>
+<status status="PASS" starttime="20200731 14:48:50.316" endtime="20200731 14:48:56.365"></status>
 </kw>
 <kw name="เลือกรูปแบบการชำระเงินเป็น Debit" library="custom-keywords">
 <arguments>
@@ -299,7 +293,7 @@
 <arguments>
 <arg>Payment Methods</arg>
 </arguments>
-<status status="PASS" starttime="20200731 14:14:52.790" endtime="20200731 14:14:52.819"></status>
+<status status="PASS" starttime="20200731 14:48:56.366" endtime="20200731 14:48:56.610"></status>
 </kw>
 <kw name="Element Should Contain" library="SeleniumLibrary">
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
@@ -307,8 +301,8 @@
 <arg>name</arg>
 <arg>${NAME}</arg>
 </arguments>
-<msg timestamp="20200731 14:14:52.879" level="INFO">Element 'name' contains text 'Scrabble'.</msg>
-<status status="PASS" starttime="20200731 14:14:52.819" endtime="20200731 14:14:52.880"></status>
+<msg timestamp="20200731 14:48:57.094" level="INFO">Element 'name' contains text 'Scrabble'.</msg>
+<status status="PASS" starttime="20200731 14:48:56.611" endtime="20200731 14:48:57.094"></status>
 </kw>
 <kw name="Element Should Contain" library="SeleniumLibrary">
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
@@ -316,8 +310,8 @@
 <arg>price</arg>
 <arg>${PRICE}</arg>
 </arguments>
-<msg timestamp="20200731 14:14:52.933" level="INFO">Element 'price' contains text '628.425'.</msg>
-<status status="PASS" starttime="20200731 14:14:52.880" endtime="20200731 14:14:52.933"></status>
+<msg timestamp="20200731 14:48:57.559" level="INFO">Element 'price' contains text '628.425'.</msg>
+<status status="PASS" starttime="20200731 14:48:57.094" endtime="20200731 14:48:57.559"></status>
 </kw>
 <kw name="Element Should Contain" library="SeleniumLibrary">
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
@@ -325,42 +319,34 @@
 <arg>order_total</arg>
 <arg>${TOTAL}</arg>
 </arguments>
-<msg timestamp="20200731 14:14:52.989" level="INFO">Element 'order_total' contains text 'Order total: 648.425'.</msg>
-<status status="PASS" starttime="20200731 14:14:52.933" endtime="20200731 14:14:52.989"></status>
+<msg timestamp="20200731 14:48:58.025" level="INFO">Element 'order_total' contains text 'Order total: 648.425'.</msg>
+<status status="PASS" starttime="20200731 14:48:57.559" endtime="20200731 14:48:58.025"></status>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <doc>Clicks the button identified by ``locator``.</doc>
 <arguments>
 <arg>payment_methods_debit</arg>
 </arguments>
-<msg timestamp="20200731 14:14:52.989" level="INFO">Clicking button 'payment_methods_debit'.</msg>
-<status status="PASS" starttime="20200731 14:14:52.989" endtime="20200731 14:14:53.130"></status>
+<msg timestamp="20200731 14:48:58.025" level="INFO">Clicking button 'payment_methods_debit'.</msg>
+<status status="PASS" starttime="20200731 14:48:58.025" endtime="20200731 14:48:58.804"></status>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <doc>Clicks the button identified by ``locator``.</doc>
 <arguments>
 <arg>bank_tmb</arg>
 </arguments>
-<msg timestamp="20200731 14:14:53.130" level="INFO">Clicking button 'bank_tmb'.</msg>
-<status status="PASS" starttime="20200731 14:14:53.130" endtime="20200731 14:14:53.259"></status>
+<msg timestamp="20200731 14:48:58.804" level="INFO">Clicking button 'bank_tmb'.</msg>
+<status status="PASS" starttime="20200731 14:48:58.804" endtime="20200731 14:48:59.560"></status>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <doc>Clicks the button identified by ``locator``.</doc>
 <arguments>
 <arg>place_your_order</arg>
 </arguments>
-<msg timestamp="20200731 14:14:53.260" level="INFO">Clicking button 'place_your_order'.</msg>
-<status status="PASS" starttime="20200731 14:14:53.260" endtime="20200731 14:14:53.430"></status>
+<msg timestamp="20200731 14:48:59.560" level="INFO">Clicking button 'place_your_order'.</msg>
+<status status="PASS" starttime="20200731 14:48:59.560" endtime="20200731 14:49:00.633"></status>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>3</arg>
-</arguments>
-<msg timestamp="20200731 14:14:56.432" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20200731 14:14:53.431" endtime="20200731 14:14:56.432"></status>
-</kw>
-<status status="PASS" starttime="20200731 14:14:52.790" endtime="20200731 14:14:56.432"></status>
+<status status="PASS" starttime="20200731 14:48:56.366" endtime="20200731 14:49:00.634"></status>
 </kw>
 <kw name="แสดงรายละเอียดคำสั่งซื้อทั้งหมด" library="custom-keywords">
 <arguments>
@@ -376,15 +362,15 @@
 <arguments>
 <arg>Thanks you</arg>
 </arguments>
-<status status="PASS" starttime="20200731 14:14:56.434" endtime="20200731 14:14:56.464"></status>
+<status status="PASS" starttime="20200731 14:49:00.636" endtime="20200731 14:49:00.885"></status>
 </kw>
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
 <arguments>
 <arg>order_id</arg>
 </arguments>
-<msg timestamp="20200731 14:14:56.520" level="INFO">Element 'order_id' is displayed.</msg>
-<status status="PASS" starttime="20200731 14:14:56.464" endtime="20200731 14:14:56.520"></status>
+<msg timestamp="20200731 14:49:01.375" level="INFO">Element 'order_id' is displayed.</msg>
+<status status="PASS" starttime="20200731 14:49:00.885" endtime="20200731 14:49:01.375"></status>
 </kw>
 <kw name="Element Should Contain" library="SeleniumLibrary">
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
@@ -392,8 +378,8 @@
 <arg>name</arg>
 <arg>${NAME}</arg>
 </arguments>
-<msg timestamp="20200731 14:14:56.564" level="INFO">Element 'name' contains text 'Scrabble'.</msg>
-<status status="PASS" starttime="20200731 14:14:56.520" endtime="20200731 14:14:56.564"></status>
+<msg timestamp="20200731 14:49:01.827" level="INFO">Element 'name' contains text 'Scrabble'.</msg>
+<status status="PASS" starttime="20200731 14:49:01.375" endtime="20200731 14:49:01.828"></status>
 </kw>
 <kw name="Element Should Contain" library="SeleniumLibrary">
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
@@ -401,8 +387,8 @@
 <arg>price</arg>
 <arg>${PRICE}</arg>
 </arguments>
-<msg timestamp="20200731 14:14:56.602" level="INFO">Element 'price' contains text '628.425'.</msg>
-<status status="PASS" starttime="20200731 14:14:56.564" endtime="20200731 14:14:56.602"></status>
+<msg timestamp="20200731 14:49:02.291" level="INFO">Element 'price' contains text '628.425'.</msg>
+<status status="PASS" starttime="20200731 14:49:01.829" endtime="20200731 14:49:02.291"></status>
 </kw>
 <kw name="Element Should Contain" library="SeleniumLibrary">
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
@@ -410,8 +396,8 @@
 <arg>shipping_method</arg>
 <arg>${SHIPPING}</arg>
 </arguments>
-<msg timestamp="20200731 14:14:56.661" level="INFO">Element 'shipping_method' contains text 'Line man'.</msg>
-<status status="PASS" starttime="20200731 14:14:56.602" endtime="20200731 14:14:56.661"></status>
+<msg timestamp="20200731 14:49:02.764" level="INFO">Element 'shipping_method' contains text 'Line man'.</msg>
+<status status="PASS" starttime="20200731 14:49:02.291" endtime="20200731 14:49:02.764"></status>
 </kw>
 <kw name="Element Should Contain" library="SeleniumLibrary">
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
@@ -419,8 +405,8 @@
 <arg>total_amount</arg>
 <arg>${QUANTITY}</arg>
 </arguments>
-<msg timestamp="20200731 14:14:56.714" level="INFO">Element 'total_amount' contains text '1'.</msg>
-<status status="PASS" starttime="20200731 14:14:56.661" endtime="20200731 14:14:56.714"></status>
+<msg timestamp="20200731 14:49:03.241" level="INFO">Element 'total_amount' contains text '1'.</msg>
+<status status="PASS" starttime="20200731 14:49:02.764" endtime="20200731 14:49:03.241"></status>
 </kw>
 <kw name="Element Should Contain" library="SeleniumLibrary">
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
@@ -428,29 +414,21 @@
 <arg>total_price</arg>
 <arg>${TOTAL}</arg>
 </arguments>
-<msg timestamp="20200731 14:14:56.772" level="INFO">Element 'total_price' contains text '628.425'.</msg>
-<status status="PASS" starttime="20200731 14:14:56.714" endtime="20200731 14:14:56.772"></status>
+<msg timestamp="20200731 14:49:03.713" level="INFO">Element 'total_price' contains text '628.425'.</msg>
+<status status="PASS" starttime="20200731 14:49:03.241" endtime="20200731 14:49:03.713"></status>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>3</arg>
-</arguments>
-<msg timestamp="20200731 14:14:59.773" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20200731 14:14:56.772" endtime="20200731 14:14:59.773"></status>
-</kw>
-<status status="PASS" starttime="20200731 14:14:56.433" endtime="20200731 14:14:59.773"></status>
+<status status="PASS" starttime="20200731 14:49:00.635" endtime="20200731 14:49:03.713"></status>
 </kw>
 <kw name="ปิด Chrome" library="custom-keywords" type="teardown">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20200731 14:14:59.774" endtime="20200731 14:15:02.052"></status>
+<status status="PASS" starttime="20200731 14:49:03.714" endtime="20200731 14:49:06.275"></status>
 </kw>
-<status status="PASS" starttime="20200731 14:14:59.774" endtime="20200731 14:15:02.053"></status>
+<status status="PASS" starttime="20200731 14:49:03.714" endtime="20200731 14:49:06.275"></status>
 </kw>
-<status status="PASS" starttime="20200731 14:14:31.696" endtime="20200731 14:15:02.055" critical="yes"></status>
+<status status="PASS" starttime="20200731 14:48:27.533" endtime="20200731 14:49:06.276" critical="yes"></status>
 </test>
-<status status="PASS" starttime="20200731 14:14:31.428" endtime="20200731 14:15:02.055"></status>
+<status status="PASS" starttime="20200731 14:48:27.117" endtime="20200731 14:49:06.278"></status>
 </suite>
 <statistics>
 <total>

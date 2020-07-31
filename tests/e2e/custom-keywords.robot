@@ -2,7 +2,7 @@
 Library         SeleniumLibrary
 
 *** Variables ***
-${URL}          http://localhost:4200/
+${URL}          http://localhost:4200/search
 ${FULL_NAME}    Supachai Uthawisan
 ${ADDRESS_1}    991/1 ถนนพระราม 1 แขวงปทุมวัน เขตปทุมวัน
 ${PROVINCE}     กรุงเทพมหานคร
@@ -12,6 +12,8 @@ ${POST_CODE}    10330
 *** Keywords ***
 เปิดChromeเข้าwebsite
     Open Browser    ${URL}    Chrome
+    Maximize Browser Window
+    Set Selenium Speed      0.2 second
 ซื้อ Scrabble
     [Arguments]                                     ${PRODUCT_ID}       ${PRODUCT_NAME}     ${AGE}      ${GENDER}       ${PRICE}    ${PRICE_IN_THAI}    ${QUANTITY}     ${SHIPPING}     ${SHIPPING_FEE}     ${STOCK}
     ค้นหาและเลือกของ                                  ${PRODUCT_ID}       ${PRODUCT_NAME}     ${AGE}      ${GENDER}
@@ -28,9 +30,10 @@ ${POST_CODE}    10330
     Select From List By Value	    gender	            ${GENDER}
     Wait Until Page Contains	    ${NAME}
     Click Element	                ${ID}
-        Sleep                           3
+
 เช็ครายละเอียดของสินค้าและเพิ่มเข้า Shopping cart
-    [Arguments]                     ${NAME}             ${GENDER}           ${AGE}            ${PRICE}         ${STOCK}          ${QUANTITY}                        
+    [Arguments]                     ${NAME}             ${GENDER}           ${AGE}            ${PRICE}         ${STOCK}          ${QUANTITY}   
+    Wait Until Page Contains	    Name	                     
     Element Should Contain	        product_brand	    ${NAME}
     Element Should Contain	        gender	            ${GENDER}
     Element Should Contain	        age	                ${AGE}
@@ -38,7 +41,7 @@ ${POST_CODE}    10330
     Element Should Contain	        stock	            ${STOCK}
     Select From List By Value	    quantity	        ${QUANTITY}
     Click Button                    id:add_button 
-        Sleep                           3
+
 เช็คสินค้าใน Shopping cart และทำการ checkout
     [Arguments]                     ${SHIPPING}         ${TOTAL}       ${SHIPPING_FEE}
     Wait Until Page Contains	    Shopping Cart	
@@ -46,7 +49,7 @@ ${POST_CODE}    10330
     Element Should Contain	        sub_total	        ${TOTAL}
     Element Should Contain	        ship_fee	        ${SHIPPING_FEE}
     Click Button	                id:submit
-        Sleep                           3
+
 เลือกที่อยู่สำหรับจัดส่งสินค้า
     [Arguments]                     ${FULL_NAME}       ${ADDRESS_1}       ${CITY}     ${PROVINCE}    ${POST_CODE}
     Wait Until Page Contains	    Shipping Address	
@@ -56,7 +59,7 @@ ${POST_CODE}    10330
     Input Text	                    province	        ${PROVINCE}
     Input Text	                    post_code	        ${POST_CODE}
     Click Button                    id:deliver_address
-        Sleep                           3
+
 เลือกรูปแบบการชำระเงินเป็น Debit
     [Arguments]                     ${NAME}     ${PRICE}       ${TOTAL}
     Wait Until Page Contains	    Payment Methods	
@@ -66,7 +69,7 @@ ${POST_CODE}    10330
     Click Button	                payment_methods_debit	
     Click Button	                bank_tmb	
     Click Button	                place_your_order	
-        Sleep                           3
+
 แสดงรายละเอียดคำสั่งซื้อทั้งหมด
     [Arguments]                     ${NAME}       ${PRICE}       ${SHIPPING}     ${QUANTITY}     ${SHIPPING_FEE}     ${TOTAL}
     Wait Until Page Contains	    Thanks you	
@@ -76,6 +79,6 @@ ${POST_CODE}    10330
     Element Should Contain	        shipping_method	    ${SHIPPING}
     Element Should Contain	        total_amount	    ${QUANTITY}
     Element Should Contain	        total_price         ${TOTAL}
-        Sleep                           3
+
 ปิด Chrome
     Close Browser
