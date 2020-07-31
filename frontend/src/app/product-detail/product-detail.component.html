@@ -1,33 +1,60 @@
-<div class="card-header lead" style = "font-size: 30px;"><em><strong> 
-  {{productDetail.name}}
-</strong></em> <div class="col-md-4 lead" id="stock"><strong>Stock : </strong>{{ productDetail.availability }}</div></div>
-<div class = "row">
-  <div class = "col-md-4">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Phoenicopterus_ruber_in_S%C3%A3o_Paulo_Zoo.jpg"
-    width="250" height="250" style= "margin-left: 100px; margin-top:20px; margin-bottom: 20px;">
+<div class="">
+  <div class="card-header" style="font-size: 30px;">
+    {{productDetail.name}}
   </div>
-  <div class = "col-md-4">
-
-    <p style = "font-size: 20px; margin-top:20px;">Select quantity: </p><select id="quanitiy" [(ngModel)]="productDetail.amount" >
-      <ng-container *ngFor=" let item of array(productDetail.quantity+1); let i=index;">
-        <option value={{i}}>{{i}}</option>
-      </ng-container>
-    </select>
-    <button id = "add_button"[disabled]="productDetail.availability !=='InStock'" (click)="onAddtoCart()" class = "btn btn-primary" style ="size: 20px; margin-left: 20px;">ADD TO CART</button>
-
+  <div class="card-body">
+    <div align="center" style="border: 50px; border-color: black;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Phoenicopterus_ruber_in_S%C3%A3o_Paulo_Zoo.jpg"
+        width="300em" height="300em" style="border: 1px solid #555;">
+    </div>
+    <br />
+    <div class="row" style="font-size: 1.25em;">
+      <div class="col-sm-5"></div>
+      <div class="col-sm-1">
+        <strong>Brand: </strong>
+      </div>
+      <div class="col-sm-5">
+        {{productDetail.brand}}
+      </div>
+      <div class="col-sm-5"></div>
+      <div class="col-sm-1">
+        <strong>Name: </strong>
+      </div>
+      <div class="col-sm-5">
+        {{productDetail.name}}
+      </div>
+      <div class="col-sm-5"></div>
+      <div class="col-sm-1">
+        <strong>Price: </strong>
+      </div>
+      <div class="col-sm-5">
+        {{productDetail.price | number:'.2'}}
+      </div>
+      <div class="col-sm-5"></div>
+      <div class="col-sm-1">
+        <strong>Quantity: </strong>
+      </div>
+      <div class="col-sm-5">
+        <select id="quanitiy" [(ngModel)]="productDetail.amount" [disabled]="productDetail.availability !=='InStock'">
+          <ng-container *ngFor=" let item of array(productDetail.quantity+1); let i=index;">
+            <option value={{i}}>{{i}}</option>
+          </ng-container>
+        </select>
+      </div>
+      <div class="col-sm-5"></div>
+      <div class="col-sm-1">
+        <strong>Available: </strong>
+      </div>
+      <div class="col-sm-5">
+        <a
+          [ngStyle]="{'color': productDetail.availability=='InStock'? 'green':'red'}">{{ productDetail.availability=='InStock'?'Available':'Out of stock' }}</a>
+      </div>
+    </div>
+    <br />
+    <div align="center">
+      <button id="add_button" [disabled]="productDetail.availability !=='InStock'" (click)="onAddtoCart()"
+        class="btn btn-primary" style="size: 20px; margin-left: 20px;"><i class="fa fa-shopping-cart"> ADD TO
+          CART</i></button>
+    </div>
   </div>
-
-
 </div>
-<div class= "row">
-        <div class="col-md-4 card-header lead" id="product_name"><strong>Brand : </strong>{{ productDetail.brand }} </div>
-        <div class="col-md-4 card-header lead" id="gender"><strong>Gender : </strong>{{ productDetail.gender }}</div>
-        <div class="col-md-4 card-header lead" id="age"><strong>Age : </strong>{{ productDetail.age }}</div>
-        <div class="col-md-4 card-header lead" id="product_price"><strong>Price : </strong>{{ productDetail.price }}</div>
-        <div class="col-md-4 card-header lead" id="shipping_method"><strong>Shipping Method : </strong>haha</div>
-  
-</div>
-    <br>
-
-
-

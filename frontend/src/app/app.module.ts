@@ -11,7 +11,8 @@ import { ThankyouComponent } from './thankyou/thankyou.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './layouts/header/header.component'
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http'
     CheckoutComponent,
     ShippingComponent,
     ThankyouComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
