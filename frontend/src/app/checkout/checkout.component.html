@@ -1,1 +1,113 @@
-<p>checkout works!</p>
+<div class="p-4">
+    <h1>Payment Methods</h1>
+    <div class="d-flex flex-row">
+        <div class="table-responsive tableFixHead mr-4" style="overflow-y:auto; width:50%; min-height: 250px;">
+            <table class="table fixed">
+                <col width=58.33% />
+                <col width=13.33% />
+                <col width=28.33% />
+                <thead>
+                    <tr>
+                        <th>Items </th>
+                        <th style="text-align: center;">Quantity</th>
+                        <th style="text-align: end;">Price (THB)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngIf="cartItem.products.length > 0">
+                        <tr *ngFor="let product of cartItem.products">
+                            <td>
+                                <div class="row">
+                                    <div class="col-sm-12" id="name">
+                                        {{product.name}} by {{product.brand}}
+                                    </div>
+                                    <div class="col-sm-3" id="gender">
+                                        {{product.gender}}
+                                    </div>
+                                    <div class="col-sm-6" id="age">
+                                        {{product.age}}
+                                    </div>
+                                </div>
+                            </td>
+                            <td align="center">
+                                <h2>{{product.amount}}</h2>
+                            </td>
+                            <td align="end" id="price">{{ (product.price * 31.5)*product.amount | number:'.2'}}</td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+            <h4 *ngIf="(cartItem.products).length == 0" style="text-align: center;">
+                ไม่พบสินค้า
+            </h4>
+        </div>
+
+        <div class="ml-4" style="width: 40%">
+            <h1>Order Summary</h1>
+            <div class="col-sm-5" id="sub_total">
+                Item ({{this.cartItem.products.length}}):
+                {{this.cartItem.totalPrice - this.cartItem.shippingFee | number:'.2'}} THB
+            </div>
+            <div class="col-sm-7" id="ship_fee">
+                Shipping Fee: {{this.cartItem.shippingFee | number:'.2'}} THB
+            </div>
+            <hr />
+            <div class="col-sm-5" id="order_total">
+                Order total: {{this.cartItem.totalPrice | number:'.2'}} THB
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mt-4 d-flex flex-column justify-content-center">
+        <h1>Select payment methods</h1>
+        <div class="d-flex flex-column">
+            <label>
+                <input type="radio" name="options" id="payment_methods_credit" autocomplete="off"
+                    (click)="onRadioCheck($event)"> Credit
+            </label>
+            <label>
+                <input type="radio" name="options" id="payment_methods_debit" autocomplete="off"
+                    (click)="onRadioCheck($event)"> Debit
+            </label>
+
+            <div *ngIf="paymentOption === 'payment_methods_debit'" class="d-flex flex-column ml-4">
+                <label>
+                    <input type="radio" name="bank-options" id="bank_kbank" autocomplete="off"
+                        (click)="onBankRadioCheck($event)"> KBANK
+                </label>
+                <label>
+                    <input type="radio" name="bank-options" id="bank_scb" autocomplete="off"
+                        (click)="onBankRadioCheck($event)">
+                    SCB
+                </label>
+                <label>
+                    <input type="radio" name="bank-options" id="bank_tmb" autocomplete="off"
+                        (click)="onBankRadioCheck($event)">
+                    TMB
+                </label>
+                <label>
+                    <input type="radio" name="bank-options" id="bank_bay" autocomplete="off"
+                        (click)="onBankRadioCheck($event)">
+                    BAY
+                </label>
+                <label>
+                    <input type="radio" name="bank-options" id="bank_gsb" autocomplete="off"
+                        (click)="onBankRadioCheck($event)">
+                    GSB
+                </label>
+            </div>
+            <label>
+                <input type="radio" name="options" id="payment_methods_line_pay" autocomplete="off"
+                    (click)="onRadioCheck($event)"> Line
+                pay
+            </label>
+        </div>
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-primary" name="place_your_order" routerLink="/thankyou"> Place your order</button>
+        </div>
+
+    </div>
+
+
+</div>
