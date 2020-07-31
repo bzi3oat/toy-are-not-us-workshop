@@ -47,7 +47,7 @@
                                         </ng-container>
                                     </select>
                                 </td>
-                                <td align="end" id="price">{{ (product.price * 31)*product.amount | number:'.2'}}</td>
+                                <td align="end" id="price">{{ (product.price * 31.5)*product.amount | number:'.2'}}</td>
                             </tr>
                         </ng-container>
                     </tbody>
@@ -60,22 +60,20 @@
             <div class="row">
                 <div class="col-sm-7" id="ship_method">
                     Shipping Method:
-                    <!-- <select id="quanitiy" [(ngModel)]="product.amount" (change)="updatePrice()">
-
-                        <option value="EMS">EMS</option>
-                        <option value="Line Man">Kerry</option>
-                        <option value="Line man">Line man</option>
-
-                    </select> -->
+                    <select id="quanitiy" [(ngModel)]="selectShipping" (change)="updatePrice()">
+                        <ng-container *ngFor="let s of shipping">
+                            <option value={{s.cost}}>{{s.name}}</option>
+                        </ng-container>
+                    </select>
                 </div>
                 <div class="col-sm-5" id="sub_total">
-                    <h4> Subtotal ({{(productCart.products).length}} Items): {{total* 31 | number:'.2'}} THB </h4>
+                    <h4> Subtotal ({{(productCart.products).length}} Items): {{total | number:'.2'}} THB </h4>
                 </div>
                 <div class="col-sm-7">
-                    Shipping Fee: 30.00 THB
+                    Shipping Fee: {{selectShipping}} THB
                 </div>
                 <div class="col-sm-5" id="ship_fee">
-                    <h4>Shipping Fee: 30 THB</h4>
+                    <h4>Shipping Fee: {{selectShipping}} THB</h4>
                 </div>
                 <div class="col-sm-7"></div>
                 <div class="col-sm-5"><button class="btn btn-primary" style="width: 100%;" (click)="onSubmit()"
